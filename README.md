@@ -6,6 +6,7 @@ Este repositório contém uma suíte de testes automatizados end-to-end (E2E) ut
 
 ```
 cypress/
+├── features/           → Documentações Markdown dos cenários testados
 ├── fixtures/           → Massa de dados (usuários, produtos, etc)
 ├── specs/              → Arquivos de testes (specs) escritos em Cypress
 ├── support/
