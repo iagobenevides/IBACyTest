@@ -12,7 +12,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
 
       - name: Instalar dependências
@@ -40,8 +40,8 @@ jobs:
         shell: bash
 
       - name: Executar testes Cypress
-        run: npx cypress run
-        timeout-minutes: 5
+        run: NODE_OPTIONS="--loader ts-node/esm" npx cypress run
+        timeout-minutes: 15
 
       - name: Upload vídeos dos testes
         uses: actions/upload-artifact@v4
