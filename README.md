@@ -20,6 +20,7 @@ cypress/
 - **[TypeScript 5.x](https://www.typescriptlang.org/)**
 - **[Faker](https://fakerjs.dev/)** (`@faker-js/faker`) para dados randômicos
 - **[dotenv](https://www.npmjs.com/package/dotenv)** para variáveis de ambiente
+- **GitHub Actions** para CI/CD (workflow incluído em `.github/workflows/ci.yml`)
 
 ## 🛠️ Ferramentas complementares:
 

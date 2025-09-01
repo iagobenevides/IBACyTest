@@ -41,7 +41,7 @@ jobs:
 
       - name: Executar testes Cypress
         run: npx cypress run
-        timeout-minutes: 10
+        timeout-minutes: 5
 
       - name: Upload vídeos dos testes
         uses: actions/upload-artifact@v4
