@@ -1,0 +1,60 @@
+name: IBACyTest CI
+
+on: [push, pull_request]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Cache do Cypress
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            cypress-${{ runner.os }}-
+
+      # 🔹 Criar o arquivo .env com os secrets do GitHub
+      - name: Criar arquivo .env
+        run: |
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+          echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
+        shell: bash
+
+      - name: Verificar arquivo .env
+        run: |
+          echo "Verificando se o arquivo .env foi criado:"
+          cat .env
+        shell: bash
+
+      - name: Executar testes Cypress
+        run: npx cypress run
+        timeout-minutes: 10
+
+      - name: Upload vídeos dos testes
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-videos
+          path: cypress/videos/
+          retention-days: 7
+
+      - name: Upload screenshots dos testes
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots/
+          retention-days: 7
