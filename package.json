@@ -1,0 +1,31 @@
+{
+  "name": "ibacytest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "open": "cypress open",
+    "run": "cypress run",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iagobenevides/IBACyTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iagobenevides/IBACyTest/issues"
+  },
+  "homepage": "https://github.com/iagobenevides/IBACyTest#readme",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "@types/node": "^24.3.0",
+    "cypress": "^15.0.0",
+    "dotenv": "^17.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
