@@ -26,7 +26,6 @@ cypress/
 - **Agente de IA aplicado** Cursor para auxílio no desenvolvimento do código
 - **Documentação MD** para padronização desde README
 
-```markdown
 ## 🚀 Como Executar o Projeto
 
 1. **Instalar dependências**
